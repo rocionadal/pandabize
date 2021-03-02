@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Bicycle from './Bicycle';
-import Admin from './Admin';
+import User from './containers/User';
+import Admin from './containers/Admin';
 
 class App extends Component {
     render() {
       return (
-        <div>
+        <React.Fragment>
             <Switch>
-                <Route exact path="/" component={Bicycle} />
+                <Route exact path="/" component={User} />
                 <Route exact path="/admin" component={Admin} />
             </Switch>
-        </div>
+        </React.Fragment>
       );
     }
   }
