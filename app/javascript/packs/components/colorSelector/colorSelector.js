@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ColorSelector.module.scss';
 
 const ColorSelector = (props) => {
-
+    const props = ['white', 'purple', 'blue'];
 
 
     return (

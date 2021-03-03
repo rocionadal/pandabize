@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import bikePic from '../../../assets/images/bike.jpg';
 
+import ColorSelector from '../components/ColorSelector/ColorSelector';
+
+import SizeSelector from '../components/SizeSelector/SizeSelector';
+
 class User extends Component {
     state = {
       bicycle: {
@@ -36,6 +40,9 @@ class User extends Component {
         <React.Fragment>
             <h1 style={{textAlign: 'center', marginBottom: 0}}>{bicycle.model}</h1>
             <img src={bikePic} style={{width: '75%'}}/>
+            <SizeSelector/>
+            <ColorSelector/>
+            <ColorSelector/>
         </React.Fragment>
       );
     }

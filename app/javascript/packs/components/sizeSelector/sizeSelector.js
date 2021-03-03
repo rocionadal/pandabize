@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './SizeSelector.module.scss';
 
-const SizeSelector = (props) => {
-
+const SizeSelector = () => {
+    const props = [17, 18, 19]
 
 
     return (
