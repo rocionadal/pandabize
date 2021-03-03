@@ -1,12 +1,21 @@
 import React from 'react';
 import classes from './SizeSelector.module.scss';
+import SelectorButton from '../UI/SelectorButton/SelectorButton';
 
-const SizeSelector = () => {
-    const props = [17, 18, 19]
-
+const SizeSelector = (props) => {
+    const sizes = props.options.map(option => {
+        return (
+            <SelectorButton text={option} />
+        );
+    })
 
     return (
-        <div className={classes.SizeSelector}><h1>Size selector</h1></div>
+        <div className={classes.SizeSelector}>
+            <h1>{props.title}</h1>
+            <div className={classes.OptionContainer}>
+              {sizes}
+            </div>
+        </div>
     )
 }
 
