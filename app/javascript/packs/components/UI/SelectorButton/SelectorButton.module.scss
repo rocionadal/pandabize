@@ -4,11 +4,12 @@
     font-size: 17px;
     border: 1px solid #dcdcdc;
     margin: 0 7px;
-    &.selected {
-        border: 1px solid rgb(231, 118, 0);
-        color: rgb(231, 118, 0);
-        box-shadow: 1px 1px 10px rgb(231, 118, 0 / 40%);
-        font-weight: bolder;
-        background: rgba(231, 118, 0, .05);
-    }
+}
+
+.Selected {
+    border: 1px solid rgb(231, 118, 0);
+    color: rgb(231, 118, 0);
+    box-shadow: 1px 1px 10px rgb(231, 118, 0 / 40%);
+    font-weight: bolder;
+    background: rgba(231, 118, 0, .05);
 }

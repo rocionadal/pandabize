@@ -37,9 +37,15 @@ class User extends Component {
 
     render() {
       const { bicycle } = this.state;
+
       const wheelSizeOptions = bicycle.buildingOptions.map(option => {
         return option.wheelSize;
       })
+
+      // const rimColorOptions = bicycle.buildingOptions.map(option => {
+      //  return option.rimColor;
+      // })
+
       return (
         <React.Fragment>
             <h1 style={{textAlign: 'center', marginBottom: 0}}>{bicycle.model}</h1>

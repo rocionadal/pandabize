@@ -5,7 +5,7 @@ import SelectorButton from '../UI/SelectorButton/SelectorButton';
 const SizeSelector = (props) => {
     const sizes = props.options.map(option => {
         return (
-            <SelectorButton text={option} />
+            <SelectorButton text={option} key={option}/>
         );
     })
 

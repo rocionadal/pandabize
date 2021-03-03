@@ -1,10 +1,17 @@
 import React from 'react';
-import classes from './SelectorButton.module.scss';
+import classes, { Selected } from './SelectorButton.module.scss';
 
 const SelectorButton = (props) => {
     const clickHandler = event => {
-        if (event.target.className !== 'selected') {
-            event.target.classList.add('selected');
+        const selected = document.querySelector(`.${Selected}`);
+        const classList = event.target.classList;
+        if (!classList.contains(Selected) && !selected) {
+            classList.toggle(Selected);
+        } else if (!classList.contains(Selected) && selected) {
+            selected.classList.toggle(Selected)
+            classList.toggle(Selected)
+        } else {
+            classList.toggle(Selected)
         }
     }
 
