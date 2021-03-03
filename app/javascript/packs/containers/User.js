@@ -5,6 +5,7 @@ import ColorSelector from '../components/ColorSelector/ColorSelector';
 import SizeSelector from '../components/SizeSelector/SizeSelector';
 import Button from '../components/UI/Button/Button';
 import classes from './User.module.scss';
+import { Selected } from '../components/UI/SelectorButton/SelectorButton.module.scss';
 
 class User extends Component {
     state = {
@@ -25,7 +26,8 @@ class User extends Component {
           rimColor: ['red', 'green', 'black'],
           saddleColor: ['white', 'purple', 'blue']
         }]
-      }
+      },
+      wheelSizeSelected: ''
     }
 
     componentDidMount() {
@@ -35,8 +37,27 @@ class User extends Component {
       })*/
     }
 
+    clickHandler = event => {
+      this.setState(prevState => {
+        return {...prevState, wheelSizeSelected: event.target.innerText }
+      })
+      const selected = document.querySelector(`.${Selected}`);
+      const classList = event.target.classList;
+      if (!classList.contains(Selected) && !selected) {
+          classList.add(Selected);
+      } else if (!classList.contains(Selected) && selected) {
+          selected.classList.remove(Selected)
+          classList.add(Selected)
+      } else if (!classList.contains(Selected)){
+          classList.add(Selected)
+      } else {
+          classList.remove(Selected);
+      }
+    }
+
     render() {
       const { bicycle } = this.state;
+      const { wheelSizeSelected } = this.state;
 
       const wheelSizeOptions = bicycle.buildingOptions.map(option => {
         return option.wheelSize;
@@ -52,7 +73,7 @@ class User extends Component {
             <div className={classes.BikeContainer}>
               <img src={bikePic} style={{width: '75%'}}/>
               <div className={classes.Selector}>
-                <SizeSelector title={'Wheel size'} options={wheelSizeOptions}/>
+                <SizeSelector title={'Wheel size'} options={wheelSizeOptions} clickHandler={this.clickHandler} selected={wheelSizeSelected}/>
                 <ColorSelector title={'Rim'} />
                 <ColorSelector title={'Saddle'} />
                 <Button text={'Continue'}/>
